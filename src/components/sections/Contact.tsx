@@ -58,7 +58,7 @@ export function Contact() {
               href="https://github.com/KIRA2104"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border bg-background/30 p-4 text-foreground-secondary transition-all hover:border-primary/30 hover:bg-background hover:scale-110 hover:text-foreground"
+              className="flex h-14 w-14 items-center justify-center rounded-full border border-border bg-background/30 text-foreground-secondary transition-all hover:border-primary/30 hover:bg-background hover:scale-110 hover:text-foreground"
               aria-label="GitHub"
             >
               <Code size={24} />
@@ -69,7 +69,7 @@ export function Contact() {
               href="https://linkedin.com/in/gauravtalele"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-border bg-background/30 p-4 text-foreground-secondary transition-all hover:border-primary/30 hover:bg-background hover:scale-110 hover:text-foreground"
+              className="flex h-14 w-14 items-center justify-center rounded-full border border-border bg-background/30 text-foreground-secondary transition-all hover:border-primary/30 hover:bg-background hover:scale-110 hover:text-foreground"
               aria-label="LinkedIn"
             >
               <BriefcaseBusiness size={24} />

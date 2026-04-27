@@ -31,7 +31,7 @@ export function Footer() {
                 href="https://github.com/KIRA2104"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-border bg-surface/60 p-2 text-foreground-secondary transition-colors hover:border-primary/20 hover:bg-surface hover:text-foreground"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface/60 text-foreground-secondary transition-all hover:border-primary/20 hover:bg-surface hover:text-foreground"
                 aria-label="GitHub"
               >
                 <Code size={20} />
@@ -42,7 +42,7 @@ export function Footer() {
                 href="https://linkedin.com/in/gauravtalele"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-border bg-surface/60 p-2 text-foreground-secondary transition-colors hover:border-primary/20 hover:bg-surface hover:text-foreground"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface/60 text-foreground-secondary transition-all hover:border-primary/20 hover:bg-surface hover:text-foreground"
                 aria-label="LinkedIn"
               >
                 <BriefcaseBusiness size={20} />
@@ -51,7 +51,7 @@ export function Footer() {
             <Magnetic>
               <a
                 href="mailto:talelegaurav01@gmail.com"
-                className="rounded-full border border-border bg-surface/60 p-2 text-foreground-secondary transition-colors hover:border-primary/20 hover:bg-surface hover:text-foreground"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface/60 text-foreground-secondary transition-all hover:border-primary/20 hover:bg-surface hover:text-foreground"
                 aria-label="Email"
               >
                 <Mail size={20} />

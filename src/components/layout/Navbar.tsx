@@ -44,12 +44,17 @@ export function Navbar() {
           "mx-auto flex items-center justify-between transition-all duration-500 max-w-4xl",
           isScrolled
             ? "bg-background/75 backdrop-blur-xl border border-border/80 rounded-full shadow-[0_24px_80px_-32px_rgba(0,0,0,0.65)] px-6 py-2"
-            : "bg-background/30 backdrop-blur-md border border-transparent px-4 py-2"
+            : "bg-background/30 backdrop-blur-md border border-border/10 rounded-full px-4 py-2"
         )}>
           <div className="flex-shrink-0">
             <Magnetic>
-              <a href="#" className="text-foreground font-heading font-bold text-xl tracking-tighter">
-                GT<span className="text-primary">.</span>
+              <a href="#" className="group flex items-center gap-1.5 transition-opacity hover:opacity-70">
+                <div className="flex gap-0.5">
+                  <div className="w-1 h-5 bg-foreground rounded-full" />
+                  <div className="w-1 h-5 bg-primary rounded-full" />
+                  <div className="w-1 h-5 bg-foreground rounded-full" />
+                </div>
+                <span className="text-sm font-bold tracking-widest uppercase">Gaurav</span>
               </a>
             </Magnetic>
           </div>

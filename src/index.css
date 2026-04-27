@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    --background: 222 24% 8%;
-    --surface: 221 20% 12%;
-    --surface-elevated: 220 18% 16%;
-    --border: 220 14% 22%;
-    --foreground: 38 33% 96%;
-    --foreground-secondary: 33 15% 72%;
-    --primary: 22 92% 63%;
-    --primary-foreground: 24 32% 12%;
-    --muted: 220 15% 18%;
-    --accent: 190 70% 58%;
+    --background: 30 25% 97%; /* Warm Off-White #F9F5F1 */
+    --surface: 30 25% 94%;
+    --surface-elevated: 0 0% 100%;
+    --border: 30 15% 88%;
+    --foreground: 20 15% 15%;
+    --foreground-secondary: 20 10% 40%;
+    --primary: 15 85% 65%; /* Soft Peach */
+    --primary-foreground: 30 25% 98%;
+    --muted: 30 15% 92%;
+    --accent: 200 50% 60%; /* Soft Blue */
 
     --font-sans: "Inter", system-ui, -apple-system, sans-serif;
     --font-heading: "Geist", system-ui, -apple-system, sans-serif;
@@ -42,16 +42,32 @@
   html {
     scroll-behavior: smooth;
     background: hsl(var(--background));
+    cursor: none !important;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     min-height: 100vh;
+    cursor: none !important;
     background-image:
-      radial-gradient(circle at top, hsl(var(--primary) / 0.18), transparent 28%),
-      radial-gradient(circle at 85% 18%, hsl(var(--accent) / 0.12), transparent 22%),
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+      radial-gradient(circle at 100% 0%, hsl(var(--primary) / 0.1), transparent 40%),
+      radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.1), transparent 40%);
+  }
+
+  .frame-vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    border: 1.25rem solid transparent;
+    background-image: linear-gradient(hsl(var(--background)), hsl(var(--background))), 
+                      linear-gradient(to bottom right, hsl(var(--accent)/0.15), hsl(var(--primary)/0.15));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    filter: blur(4px);
   }
 
   ::selection {
@@ -72,7 +88,6 @@
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
-  mix-blend-mode: screen;
 }
 
 .custom-cursor-ring {
@@ -81,13 +96,46 @@
   left: 0;
   width: 24px;
   height: 24px;
-  background: hsl(var(--accent) / 0.6);
+  background: transparent;
+  border: 1px solid hsl(var(--primary) / 0.3);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   opacity: 0;
-  mix-blend-mode: screen;
-  filter: blur(2px);
+}
+
+.custom-cursor-ripple {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid hsl(var(--primary));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple-effect 0.6s ease-out forwards;
+}
+
+/* Ensure interactive elements don't show the default cursor */
+a, button, [role="button"] {
+  cursor: none !important;
 }
 @media (pointer: coarse), (max-width: 768px) {
   .custom-cursor-dot,

@@ -18,6 +18,7 @@ function App() {
 
   return (
     <>
+      <div className="frame-vignette" />
       {/* Custom cursor - desktop only */}
       <div className="custom-cursor-dot" ref={primaryRef} />
       <div className="custom-cursor-ring" ref={secondaryRef} />

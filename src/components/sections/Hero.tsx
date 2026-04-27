@@ -1,11 +1,10 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ChevronDown } from "lucide-react"
-import { useTypewriter } from "@/hooks/useTypewriter"
 import { Button } from "@/components/ui/Button"
 import { Magnetic } from "@/components/ui/Magnetic"
 import { useRef } from "react"
 
-const titles = ["Full Stack Developer", "UI Engineer", ".NET Developer", "AI/ML Enthusiast"]
+
 const particles = Array.from({ length: 50 }, (_, index) => ({
   id: index,
   x: (index * 137) % 1000,
@@ -15,7 +14,6 @@ const particles = Array.from({ length: 50 }, (_, index) => ({
 }))
 
 export function Hero() {
-  const currentTitle = useTypewriter(titles, 100, 50, 2000)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 200])
@@ -66,9 +64,9 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-16 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-4xl">
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-foreground tracking-tight flex flex-wrap gap-x-4 md:gap-x-6">
+        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-heading font-black text-foreground tracking-[-0.04em] leading-[0.85] flex flex-wrap gap-x-4 md:gap-x-6">
           {words.map((word, wordIndex) => (
-            <span key={wordIndex} className="inline-block overflow-hidden py-2 -my-2">
+            <span key={wordIndex} className="inline-block overflow-hidden py-4 -my-4">
               <span className="flex">
                 {word.split("").map((char, charIndex) => (
                   <motion.span
@@ -76,9 +74,9 @@ export function Hero() {
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{
-                      duration: 0.8,
-                      delay: 0.2 + (wordIndex * word.length + charIndex) * 0.04,
-                      ease: [0.33, 1, 0.68, 1],
+                      duration: 1.2,
+                      delay: 0.1 + (wordIndex * word.length + charIndex) * 0.03,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                     className="inline-block"
                   >
@@ -93,12 +91,11 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="mt-6"
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-8"
         >
-          <p className="text-xl md:text-2xl text-foreground-secondary font-mono min-h-[32px]">
-            {currentTitle}
-            <span className="animate-pulse">|</span>
+          <p className="text-2xl md:text-4xl text-foreground font-medium tracking-tight max-w-3xl">
+            Building digital products, polished interfaces, and AI systems.
           </p>
         </motion.div>
 
