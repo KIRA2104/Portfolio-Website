@@ -65,14 +65,6 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-16 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/20 bg-surface/80 px-4 py-2 text-sm text-foreground-secondary shadow-[0_18px_45px_-28px_hsl(var(--primary)/0.7)] backdrop-blur"
-          >
-            Pune-based developer building product, UI, and AI systems
-          </motion.div>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-foreground tracking-tight flex flex-wrap gap-x-4 md:gap-x-6">
           {words.map((word, wordIndex) => (
