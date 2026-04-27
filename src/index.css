@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 24% 8%;
+    --surface: 221 20% 12%;
+    --surface-elevated: 220 18% 16%;
+    --border: 220 14% 22%;
+    --foreground: 38 33% 96%;
+    --foreground-secondary: 33 15% 72%;
+    --primary: 22 92% 63%;
+    --primary-foreground: 24 32% 12%;
+    --muted: 220 15% 18%;
+    --accent: 190 70% 58%;
+
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-heading: "Geist", system-ui, -apple-system, sans-serif;
+    --font-mono: "Geist Mono", "Consolas", monospace;
+  }
+
+  .light {
+    --background: 36 39% 97%;
+    --surface: 36 24% 94%;
+    --surface-elevated: 0 0% 100%;
+    --border: 28 18% 84%;
+    --foreground: 224 24% 16%;
+    --foreground-secondary: 221 14% 38%;
+    --primary: 18 88% 54%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 35 24% 90%;
+    --accent: 197 71% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: hsl(var(--background));
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at top, hsl(var(--primary) / 0.18), transparent 28%),
+      radial-gradient(circle at 85% 18%, hsl(var(--accent) / 0.12), transparent 22%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Custom cursor styles */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: hsl(var(--primary));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: hsl(var(--accent) / 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  mix-blend-mode: screen;
+  filter: blur(2px);
+}
+@media (pointer: coarse), (max-width: 768px) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none;
+  }
+}
