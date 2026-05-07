@@ -15,7 +15,10 @@ export function Skills() {
         Skills
       </motion.h2>
 
-      <div className="space-y-8 rounded-[2rem] border border-border bg-surface/65 p-6 md:p-8">
+      <div 
+        data-cursor="dark"
+        className="space-y-12 rounded-[2.5rem] border border-border bg-surface/90 p-8 md:p-12 shadow-[0_16px_50px_-35px_rgba(0,0,0,0.5)]"
+      >
         {skillCategories.map((category, categoryIndex) => (
           <div key={category.name}>
             <motion.h3 

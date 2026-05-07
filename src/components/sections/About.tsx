@@ -34,7 +34,10 @@ export function About() {
             </p>
           </div>
 
-          <div className="mt-8 rounded-[2rem] border border-border bg-surface/80 p-6 shadow-[0_22px_70px_-40px_rgba(0,0,0,0.8)] backdrop-blur">
+          <div 
+            data-cursor="dark"
+            className="mt-8 rounded-[2.5rem] border border-border bg-surface/90 p-8 shadow-[0_22px_70px_-40px_rgba(0,0,0,0.8)] backdrop-blur"
+          >
             <p className="text-sm uppercase tracking-[0.22em] text-foreground-secondary">
               Current focus
             </p>
@@ -44,10 +47,11 @@ export function About() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 gap-4 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
+              data-cursor="dark"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
@@ -57,7 +61,7 @@ export function About() {
                 type: "spring",
                 stiffness: 100 
               }}
-              className="group rounded-[1.75rem] border border-border bg-surface/80 p-6 shadow-[0_16px_50px_-35px_rgba(0,0,0,0.9)] transition-colors hover:border-primary/30"
+              className="group rounded-[2.5rem] border border-border bg-surface/90 p-6 shadow-[0_16px_50px_-35px_rgba(0,0,0,0.9)] transition-colors hover:border-primary/30"
             >
               <p className="text-xl md:text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
                 {stat.value}
