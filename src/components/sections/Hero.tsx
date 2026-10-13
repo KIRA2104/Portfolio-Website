@@ -131,7 +131,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.55 }}
-          className="grid max-w-sm grid-cols-2 gap-4 lg:w-[22rem]"
+          className="grid max-w-md grid-cols-2 gap-5 lg:w-[22rem]"
         >
           {[
             { value: "3+", label: "Featured builds" },

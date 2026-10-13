@@ -10,12 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "fpas",
-    title: "FPAS — Faculty Performance Appraisal System",
+    id: "finmo",
+    title: "Finmo — Project Finance & Valuation Engine",
     description:
-      "Full-stack institutional appraisal platform for MIT-ADT University. Features role-based access (Faculty/HOD/Dean/Admin), KPI scoring engine, AI-generated audit reports, and evidence upload system.",
+      "A full-stack project finance and valuation engine designed for renewable energy infrastructure developers (IPPs) and lenders. It replaces complex 50-sheet spreadsheets with real-time multi-year financial statements, debt covenant stress-testing (P50/P90, DSCR), and dynamic audit-ready .xlsx export with non-hardcoded formulas",
     techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
-    githubUrl: "https://github.com/KIRA2104/fpas",
+    githubUrl: "https://github.com/KIRA2104/Financial-Model",
+    liveUrl: "https://finmo.website",
     featured: true,
   },
   {
@@ -24,7 +25,6 @@ export const projects: Project[] = [
     description:
       "Behavioral biometric authentication using keystroke dynamics. Extracted dwell-time and flight-time features from 500+ login sessions across 20+ users, achieved 88% authentication accuracy.",
     techStack: ["Python", "Machine Learning", "Statistical Analysis"],
-    githubUrl: "https://github.com/KIRA2104/behavioral-auth",
     featured: false,
   },
   {
@@ -33,7 +33,6 @@ export const projects: Project[] = [
     description:
       "Real-time sign language translation using CNN-based gesture recognition. Preprocessed 3,000+ gesture images, achieved 92% accuracy with live webcam inference.",
     techStack: ["Python", "TensorFlow", "OpenCV", "CNN"],
-    githubUrl: "https://github.com/KIRA2104/sign-language-translator",
     featured: false,
   },
   {
@@ -42,16 +41,15 @@ export const projects: Project[] = [
     description:
       "AI-driven traffic signal optimization using computer vision. Used YOLOv8 for vehicle detection and lane-wise congestion analysis, improved simulated traffic flow efficiency by ~35%.",
     techStack: ["Python", "YOLOv8", "Computer Vision"],
-    githubUrl: "https://github.com/KIRA2104/traffic-management",
     featured: false,
   },
   {
-    id: "finmo",
-    title: "Finmo — Renewable Energy Financial Model",
+    id: "fpas",
+    title: "FPAS — Faculty Performance Appraisal System",
     description:
-      "A financial modeling platform for renewable energy projects. Build and analyze project cash flows, compare scenarios, review model assumptions, and export pro forma results to Excel.",
-    techStack: ["React", "JavaScript", "Firebase", "Recharts", "SheetJS (xlsx)"],
-    githubUrl: "https://github.com/KIRA2104/Financial-Model",
+      "Full-stack institutional appraisal platform for MIT-ADT University. Features role-based access (Faculty/HOD/Dean/Admin), KPI scoring engine, AI-generated audit reports, and evidence upload system.",
+    techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
     featured: false,
   },
 ]
+
