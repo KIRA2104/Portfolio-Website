@@ -39,7 +39,7 @@ export function Footer() {
             </Magnetic>
             <Magnetic>
               <a
-                href="https://linkedin.com/in/gauravtalele"
+                href="https://linkedin.com/in/gaurav-talele-16940b296"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface/60 text-foreground-secondary transition-all hover:border-primary/20 hover:bg-surface hover:text-foreground"

@@ -32,6 +32,19 @@
     --muted: 35 24% 90%;
     --accent: 197 71% 40%;
   }
+
+  .dark {
+    --background: 20 15% 8%;
+    --surface: 20 13% 12%;
+    --surface-elevated: 20 12% 16%;
+    --border: 20 10% 22%;
+    --foreground: 30 25% 96%;
+    --foreground-secondary: 25 10% 68%;
+    --primary: 15 85% 65%;
+    --primary-foreground: 20 15% 8%;
+    --muted: 20 10% 18%;
+    --accent: 200 50% 60%;
+  }
 }
 
 @layer base {
@@ -50,6 +63,12 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     min-height: 100vh;
     cursor: none !important;
+    background-image:
+      radial-gradient(circle at 100% 0%, hsl(var(--primary) / 0.1), transparent 40%),
+      radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.1), transparent 40%);
+  }
+
+  .dark body {
     background-image:
       radial-gradient(circle at 100% 0%, hsl(var(--primary) / 0.1), transparent 40%),
       radial-gradient(circle at 0% 100%, hsl(var(--accent) / 0.1), transparent 40%);
@@ -77,69 +96,46 @@
 }
 
 /* Custom cursor styles */
-.custom-cursor-dot {
+.custom-cursor {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  background: hsl(var(--primary));
+  width: 28px;
+  height: 28px;
+  /* Distinctive Dot-in-Ring design */
+  background: radial-gradient(circle at center, 
+    hsl(15 60% 25%) 0%, 
+    hsl(15 60% 25%) 15%, 
+    transparent 20%, 
+    transparent 45%, 
+    hsl(15 60% 25% / 0.4) 50%, 
+    transparent 100%
+  );
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10000;
   opacity: 0;
+  filter: drop-shadow(0 0 2px hsl(var(--primary) / 0.2));
+  transition: opacity 0.5s ease;
+  transform: translate(-50%, -50%);
 }
 
-.custom-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  background: transparent;
-  border: 1px solid hsl(var(--primary) / 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0;
-}
-
-.custom-cursor-ripple {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border: 2px solid hsl(var(--primary));
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9997;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.5);
-}
-
-@keyframes ripple-effect {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.8;
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+  .custom-cursor {
+    display: block;
   }
-  100% {
-    transform: translate(-50%, -50%) scale(2);
-    opacity: 0;
+  html, body, *, *::before, *::after {
+    cursor: none;
   }
 }
 
-.animate-ripple {
-  animation: ripple-effect 0.6s ease-out forwards;
-}
-
-/* Ensure interactive elements don't show the default cursor */
-a, button, [role="button"] {
-  cursor: none !important;
-}
-@media (pointer: coarse), (max-width: 768px) {
-  .custom-cursor-dot,
-  .custom-cursor-ring {
-    display: none;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

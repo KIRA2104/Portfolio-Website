@@ -13,15 +13,14 @@ import { useRef } from "react"
 
 function App() {
   useLenis()
-  const { primaryRef, secondaryRef } = useCursor()
+  const { cursorRef } = useCursor()
   const mainRef = useRef<HTMLElement>(null)
 
   return (
     <>
       <div className="frame-vignette" />
       {/* Custom cursor - desktop only */}
-      <div className="custom-cursor-dot" ref={primaryRef} />
-      <div className="custom-cursor-ring" ref={secondaryRef} />
+      <div className="custom-cursor" ref={cursorRef} />
 
       <Navbar />
 

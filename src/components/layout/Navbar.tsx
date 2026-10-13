@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Sun, Moon } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { navItems } from "@/data/navigation"
 import { useScrollProgress } from "@/hooks/useScrollProgress"
-import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 import { Magnetic } from "@/components/ui/Magnetic"
 
@@ -11,7 +10,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { activeSection } = useScrollProgress()
-  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +18,15 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileMenuOpen(false)
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isMobileMenuOpen])
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false)
@@ -83,33 +90,16 @@ export function Navbar() {
                 </button>
               ))}
             </div>
-            
-            <div className="w-px h-6 bg-border" />
-            
-            <Magnetic>
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2.5 hover:bg-surface rounded-full transition-colors border border-transparent hover:border-primary/20 flex-shrink-0"
-                aria-label="Toggle theme"
-              >
-                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
-            </Magnetic>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 hover:bg-surface rounded-full transition-colors border border-border/50 bg-surface/70"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 hover:bg-surface rounded-full transition-colors border border-border/50 bg-surface/70"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -125,6 +115,9 @@ export function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            id="mobile-navigation"
+            role="dialog"
+            aria-label="Mobile navigation"
             className="fixed inset-4 z-40 bg-background/95 backdrop-blur-2xl border border-border rounded-3xl md:hidden overflow-hidden pt-24 shadow-[0_30px_90px_-25px_rgba(0,0,0,0.7)]"
           >
             <div className="flex flex-col p-8 gap-6">

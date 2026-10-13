@@ -31,10 +31,10 @@ export function Contact() {
           <motion.a
             whileHover={{ y: -4 }}
             href="mailto:talelegaurav01@gmail.com"
-            className="flex items-center justify-center gap-3 rounded-2xl border border-border bg-background/30 px-5 py-5 text-foreground-secondary transition-all duration-300 hover:border-primary/30 hover:text-foreground"
+            className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-background/30 px-4 py-5 text-foreground-secondary transition-all duration-300 hover:border-primary/30 hover:text-foreground sm:flex-row sm:gap-3 sm:px-5"
           >
-            <Mail size={20} />
-            <span className="text-lg font-mono">talelegaurav01@gmail.com</span>
+            <Mail className="shrink-0" size={20} />
+            <span className="whitespace-nowrap font-mono text-xs sm:text-sm md:text-xs lg:text-base">talelegaurav01@gmail.com</span>
           </motion.a>
 
           <motion.a
@@ -66,7 +66,7 @@ export function Contact() {
           </Magnetic>
           <Magnetic>
             <a
-              href="https://linkedin.com/in/gauravtalele"
+              href="https://linkedin.com/in/gaurav-talele-16940b296"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-14 w-14 items-center justify-center rounded-full border border-border bg-background/30 text-foreground-secondary transition-all hover:border-primary/30 hover:bg-background hover:scale-110 hover:text-foreground"

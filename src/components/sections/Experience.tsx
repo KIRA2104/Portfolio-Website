@@ -42,7 +42,7 @@ export function Experience() {
               viewport={{ once: true }}
               transition={{ delay: 0.5 + index * 0.1 }}
               className={`absolute top-2 w-4 h-4 bg-background border-2 border-primary rounded-full hidden md:block ${
-                index % 2 === 0 ? "left-[calc(100%+2rem-9px)]" : "right-[calc(100%+2rem-9px)]"
+                index % 2 === 0 ? "left-[calc(100%+2rem-8px)]" : "right-[calc(100%+2rem-8px)]"
               }`}
             />
 

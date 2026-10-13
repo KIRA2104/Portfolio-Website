@@ -16,7 +16,6 @@ export const projects: Project[] = [
       "Full-stack institutional appraisal platform for MIT-ADT University. Features role-based access (Faculty/HOD/Dean/Admin), KPI scoring engine, AI-generated audit reports, and evidence upload system.",
     techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
     githubUrl: "https://github.com/KIRA2104/fpas",
-    liveUrl: "#",
     featured: true,
   },
   {
@@ -44,6 +43,15 @@ export const projects: Project[] = [
       "AI-driven traffic signal optimization using computer vision. Used YOLOv8 for vehicle detection and lane-wise congestion analysis, improved simulated traffic flow efficiency by ~35%.",
     techStack: ["Python", "YOLOv8", "Computer Vision"],
     githubUrl: "https://github.com/KIRA2104/traffic-management",
+    featured: false,
+  },
+  {
+    id: "finmo",
+    title: "Finmo — Renewable Energy Financial Model",
+    description:
+      "A financial modeling platform for renewable energy projects. Build and analyze project cash flows, compare scenarios, review model assumptions, and export pro forma results to Excel.",
+    techStack: ["React", "JavaScript", "Firebase", "Recharts", "SheetJS (xlsx)"],
+    githubUrl: "https://github.com/KIRA2104/Financial-Model",
     featured: false,
   },
 ]

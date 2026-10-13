@@ -66,7 +66,7 @@ export function Hero() {
 
         <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-heading font-black text-foreground tracking-[-0.04em] leading-[0.85] flex flex-wrap gap-x-4 md:gap-x-6">
           {words.map((word, wordIndex) => (
-            <span key={wordIndex} className="inline-block overflow-hidden py-4 -my-4">
+            <span key={wordIndex} className="inline-block overflow-hidden py-4 pr-2 -my-4">
               <span className="flex">
                 {word.split("").map((char, charIndex) => (
                   <motion.span

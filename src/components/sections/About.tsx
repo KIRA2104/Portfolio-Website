@@ -47,7 +47,7 @@ export function About() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 md:gap-6">
+        <div className="mx-auto grid w-full max-w-md grid-cols-[repeat(2,minmax(0,1fr))] gap-4 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -61,12 +61,12 @@ export function About() {
                 type: "spring",
                 stiffness: 100 
               }}
-              className="group rounded-[2.5rem] border border-border bg-surface/90 p-6 shadow-[0_16px_50px_-35px_rgba(0,0,0,0.9)] transition-colors hover:border-primary/30"
+              className="group min-w-0 rounded-[2rem] border border-border bg-surface/90 p-3 text-center shadow-[0_16px_50px_-35px_rgba(0,0,0,0.9)] transition-colors hover:border-primary/30 sm:rounded-[2.5rem] sm:p-4 md:p-6"
             >
               <p className="text-xl md:text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
                 {stat.value}
               </p>
-              <p className="mt-3 text-sm leading-6 text-foreground-secondary">
+              <p className="mt-2 break-words text-[0.65rem] leading-5 tracking-[0.08em] text-foreground-secondary md:mt-3 md:text-sm md:tracking-normal md:leading-6">
                 {stat.label}
               </p>
             </motion.div>
