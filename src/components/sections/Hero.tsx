@@ -131,7 +131,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.55 }}
-          className="grid max-w-md grid-cols-2 gap-5 lg:w-[22rem]"
+          className="grid w-full max-w-md grid-cols-2 gap-4 sm:gap-5 lg:w-[28rem] shrink-0"
         >
           {[
             { value: "3+", label: "Featured builds" },
@@ -141,10 +141,10 @@ export function Hero() {
           ].map((item) => (
             <div
               key={item.label}
-              className="rounded-3xl border border-border bg-surface/80 p-5 shadow-[0_18px_40px_-30px_rgba(0,0,0,0.8)] backdrop-blur"
+              className="rounded-3xl border border-border bg-surface/80 p-6 min-h-[8.5rem] flex flex-col items-center justify-center text-center shadow-[0_18px_40px_-30px_rgba(0,0,0,0.8)] backdrop-blur"
             >
-              <p className="text-2xl font-heading font-bold text-foreground">{item.value}</p>
-              <p className="mt-2 text-sm uppercase tracking-[0.18em] text-foreground-secondary">
+              <p className="text-3xl md:text-4xl font-heading font-bold text-foreground">{item.value}</p>
+              <p className="mt-2 text-xs md:text-sm uppercase tracking-wider text-foreground-secondary">
                 {item.label}
               </p>
             </div>

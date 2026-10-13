@@ -6,7 +6,7 @@ export function useScrollProgress() {
   useEffect(() => {
     const handleScroll = () => {
       // Find active section
-      const sections = ["about", "experience", "projects", "skills", "responsibilities", "contact"]
+      const sections = ["about", "experience", "skills", "projects", "responsibilities", "contact"]
       const current = sections.find((section) => {
         const element = document.getElementById(section)
         if (element) {

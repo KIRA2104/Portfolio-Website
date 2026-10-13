@@ -30,8 +30,8 @@ function App() {
         <Hero />
         <About />
         <Experience />
-        <Projects />
         <Skills />
+        <Projects />
         <Responsibilities />
         <Contact />
       </main>
