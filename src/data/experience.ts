@@ -13,7 +13,7 @@ export const experience: Experience[] = [
     role: ".NET Developer Intern",
     company: "POXO RFID Automation",
     location: "Pune, India",
-    duration: "July 2025 – Present",
+    duration: "July 2025 – Feb 2026",
     points: [
       "Developed and maintained backend services using .NET for RFID-based industrial automation systems",
       "Designed and implemented a Face Recognition System with full pipeline including face detection, feature extraction, similarity-based identity matching, and secure database storage",
